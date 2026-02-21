@@ -1,32 +1,33 @@
-package com.project.SpaCentr.model.entity;
+package com.project.SpaCentr.model.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "availability_slots")
-public class AvailabilitySlotEntity extends BaseEntity {
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "therapist_id", nullable = false)
-    private TherapistEntity therapistId;
-    @Column(name = "day_of_week",nullable = false)
+public class AvailabilitySlotDTO {
+    private Long id;
+    private Long therapistId;
     private LocalDate dayOfWeek;
-    @Column(name = "slot_start_time",nullable = false)
     private int slotStartTime;
-    @Column(name = "slot_end_time",nullable = false)
     private int slotEndTime;
-    @Column(name = "is_available",nullable = false)
     private boolean isAvailable = true;
 
-    public AvailabilitySlotEntity() {
+    public AvailabilitySlotDTO() {
     }
 
-    public TherapistEntity getTherapistId() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getTherapistId() {
         return therapistId;
     }
 
-    public void setTherapistId(TherapistEntity therapistId) {
+    public void setTherapistId(Long therapistId) {
         this.therapistId = therapistId;
     }
 

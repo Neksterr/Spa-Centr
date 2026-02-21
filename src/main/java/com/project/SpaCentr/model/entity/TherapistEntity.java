@@ -1,13 +1,12 @@
 package com.project.SpaCentr.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "therapists")
 public class TherapistEntity extends BaseEntity{
-    @Column(name = "user_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userId;
     @Column(name = "therapist_name",nullable = false)
     private String fullName;
