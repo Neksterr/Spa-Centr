@@ -4,10 +4,13 @@ import com.project.SpaCentr.model.dto.SpaServicesDTO;
 import com.project.SpaCentr.model.entity.SpaServiceEntity;
 import com.project.SpaCentr.repository.SpaServiceRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SpaServicesService {
 
-
+    @Autowired
     private final SpaServiceRepository spaServiceRepository;
     private final ModelMapper modelMapper;
 
