@@ -28,6 +28,13 @@ public class SpaServicesService {
         }
         spaServiceRepository.deleteById(spaServiceId);
     }
+    public void updateSpaService(Long id, String spaService, int duration, double price){
+        SpaServiceEntity existing = spaServiceRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid spa service id: "));
+        existing.setServiceName(spaService);
+        existing.setDurationMinutes(duration);
+        existing.setPrice(price);
+        spaServiceRepository.save(existing);
+    }
 
     //To-do
     //update method
