@@ -1,6 +1,5 @@
 package com.project.SpaCentr.service;
 
-import com.project.SpaCentr.model.dto.SpaServicesDTO;
 import com.project.SpaCentr.model.entity.SpaServiceEntity;
 import com.project.SpaCentr.repository.SpaServiceRepository;
 import org.modelmapper.ModelMapper;

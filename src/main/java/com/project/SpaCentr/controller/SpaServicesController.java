@@ -1,7 +1,6 @@
 package com.project.SpaCentr.controller;
 
 
-import com.project.SpaCentr.model.dto.SpaServicesDTO;
 import com.project.SpaCentr.model.entity.SpaServiceEntity;
 import com.project.SpaCentr.repository.SpaServiceRepository;
 import com.project.SpaCentr.service.SpaServicesService;

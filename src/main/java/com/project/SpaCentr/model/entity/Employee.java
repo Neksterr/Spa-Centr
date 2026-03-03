@@ -7,11 +7,13 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
-public class UserEntity extends BaseEntity {
+public class Employee extends BaseEntity {
     @Column(name = "usernames",nullable = false,unique = true)
     private String username;
     @Column(name = "passwords",nullable = false)
     private String password;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
     @Enumerated(EnumType.STRING)
     @Column(name = "roles",nullable = false)
     private Role role;
@@ -22,9 +24,6 @@ public class UserEntity extends BaseEntity {
     @Column(name = "last_modified_date",nullable = false)
     private LocalDate lastModifiedDate;
 
-
-    public UserEntity() {
-    }
 
     public String getUsername() {
         return username;
@@ -40,6 +39,14 @@ public class UserEntity extends BaseEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public Role getRole() {
