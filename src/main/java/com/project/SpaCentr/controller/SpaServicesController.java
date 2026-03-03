@@ -16,10 +16,13 @@ public class SpaServicesController {
 
     private final SpaServicesService spaServicesService;
     private final SpaServiceRepository spaServiceRepository;
+
+
     public SpaServicesController(SpaServicesService spaServicesService, SpaServiceRepository spaServiceRepository) {
         this.spaServicesService = spaServicesService;
         this.spaServiceRepository = spaServiceRepository;
     }
+
     @RequestMapping("/spaServices")
     public String getSpaServices(Model model){
         List<SpaServiceEntity> allSpaServices = spaServiceRepository.findAll();
@@ -43,11 +46,12 @@ public class SpaServicesController {
         spaServiceRepository.deleteById(id);
         return "redirect:/spaServices";
     }
-}   @PostMapping("/spaServices/edit/{id}")
+    @PostMapping("/spaServices/edit/{id}")
     public String editSpaService(@PathVariable("id") Long id,
                                  @RequestParam String serviceName,
                                  @RequestParam int durationMinutes,
                                  @RequestParam double price){
-    SpaServicesService.updateSpaService(id,spaService,duration,price);
+    spaServicesService.updateSpaService(id,serviceName,durationMinutes,price);
     return "redirect:/spaServices";
+    }
 }
