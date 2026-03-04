@@ -1,10 +1,14 @@
 package com.project.SpaCentr.service;
 
+import com.project.SpaCentr.model.dto.CreateSpaServiceRequest;
+import com.project.SpaCentr.model.dto.SpaServiceResponse;
 import com.project.SpaCentr.model.entity.SpaServiceEntity;
 import com.project.SpaCentr.repository.SpaServiceRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SpaServicesService {
@@ -17,9 +21,11 @@ public class SpaServicesService {
         this.spaServiceRepository = spaServiceRepository;
         this.modelMapper = modelMapper;
     }
-    public void addSpaService(SpaServicesDTO spaServicesDTO){
-        SpaServiceEntity newSpaService = modelMapper.map(spaServicesDTO, SpaServiceEntity.class);
+    public SpaServiceResponse addSpaService(CreateSpaServiceRequest createSpaServiceRequest){
+        SpaServiceEntity newSpaService = modelMapper.map(createSpaServiceRequest, SpaServiceEntity.class);
+        newSpaService.setStatusActive(true);
         spaServiceRepository .save(newSpaService);
+        return modelMapper.map(newSpaService,SpaServiceResponse.class);
     }
     public void deleteSpaService(Long spaServiceId){
         if (!spaServiceRepository.existsById(spaServiceId)){
@@ -33,6 +39,12 @@ public class SpaServicesService {
         existing.setDurationMinutes(duration);
         existing.setPrice(price);
         spaServiceRepository.save(existing);
+    }
+    public List<SpaServiceResponse> list() {
+        List<SpaServiceEntity> services =spaServiceRepository.findAll();
+        return services.stream()
+                .map(s -> modelMapper.map(s, SpaServiceResponse.class))
+                .toList();
     }
 
     //To-do
