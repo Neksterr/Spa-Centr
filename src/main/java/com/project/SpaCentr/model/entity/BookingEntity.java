@@ -21,6 +21,8 @@ public class BookingEntity extends BaseEntity{
 
     @Column(name = "booking_start_date_time", nullable = false)
     private LocalDateTime bookingStartDateTime;
+    @Column(name = "booking_end_date_time", nullable = false)
+    private LocalDateTime bookingEndDateTime;
 
     @Column(name = "client_name", nullable = false)
     private String clientName;
@@ -127,5 +129,8 @@ public class BookingEntity extends BaseEntity{
 
     public void setCompletedAt(Instant completedAt) {
         this.completedAt = completedAt;
+    }
+
+    public void setEndTime(LocalDateTime end) {
     }
 }

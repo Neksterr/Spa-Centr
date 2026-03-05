@@ -62,4 +62,8 @@ public class EmployeePrincipal  implements UserDetails {
     public Long getId() {
         return id;
     }
+
+    public Role getRole() {
+        return role;
+    }
 }
