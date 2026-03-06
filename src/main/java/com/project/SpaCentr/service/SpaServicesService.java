@@ -7,8 +7,11 @@ import com.project.SpaCentr.repository.SpaServiceRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 public class SpaServicesService {
@@ -45,6 +48,15 @@ public class SpaServicesService {
         return services.stream()
                 .map(s -> modelMapper.map(s, SpaServiceResponse.class))
                 .toList();
+    }
+    public SpaServiceEntity getActiveOrThrow(long id) {
+        SpaServiceEntity spaService = spaServiceRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Service not found"));
+
+        if (!spaService.isStatusActive()) {
+            throw new ResponseStatusException(NOT_FOUND, "Service is inactive");
+        }
+        return spaService;
     }
 
     //To-do

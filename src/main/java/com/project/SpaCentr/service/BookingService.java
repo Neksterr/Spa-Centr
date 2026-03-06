@@ -41,9 +41,9 @@ public class BookingService {
 
         EmployeePrincipal me = CurrentUser.principal();
         if (me.getRole() != Role.RECEPTIONIST){
-            throw new ResponseStatusException(FORBIDDEN,"YOU DON'T HAVE AUTHORITY")
+            throw new ResponseStatusException(FORBIDDEN,"YOU DON'T HAVE AUTHORITY");
         }
-        SpaServiceEntity spaService = spaServicesService.spaServiceId();
+        SpaServiceEntity spaService = spaServicesService.getActiveOrThrow(createBookingRequest.spaServiceId());
         Employee therapist = employeeRepository.findById(createBookingRequest.therapistId())
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND,"Therapist not found"));
         LocalDateTime start = createBookingRequest.startTime();
