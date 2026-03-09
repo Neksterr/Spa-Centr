@@ -25,6 +25,9 @@ public class SecurityConfig {
                 .requestMatchers("/api/reception/**").hasRole("RECEPTIONIST")
                 .requestMatchers("/api/therapist/**").hasRole("THERAPIST")
                 .requestMatchers("/api/reports/**").hasRole("ADMIN")
+                .requestMatchers("/", "/app").authenticated()
+                .requestMatchers("/api/dashboard/**").authenticated()
+                .requestMatchers("/api/reception/**").hasRole("RECEPTIONIST")
                 .anyRequest().authenticated());
         return  http.build();
 
