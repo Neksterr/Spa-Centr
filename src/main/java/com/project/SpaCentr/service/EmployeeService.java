@@ -1,8 +1,8 @@
 package com.project.SpaCentr.service;
 
-import com.project.SpaCentr.model.dto.CreateEmployeeDto;
-import com.project.SpaCentr.model.dto.EmployeeCreatedResponse;
-import com.project.SpaCentr.model.dto.EmployeeResponse;
+import com.project.SpaCentr.model.dto.request.CreateEmployeeRequest;
+import com.project.SpaCentr.model.dto.response.EmployeeCreatedResponse;
+import com.project.SpaCentr.model.dto.response.EmployeeResponse;
 import com.project.SpaCentr.model.entity.Employee;
 import com.project.SpaCentr.repository.EmployeeRepository;
 import org.modelmapper.ModelMapper;
@@ -26,16 +26,16 @@ public class EmployeeService {
         this.passwordEncoder = passwordEncoder;
         this.modelMapper = modelMapper;
     }
-    public EmployeeCreatedResponse createEmployee(CreateEmployeeDto createEmployeeDto){
-        Employee existing = employeeRepository.findByUsername(createEmployeeDto.username());
+    public EmployeeCreatedResponse createEmployee(CreateEmployeeRequest createEmployeeRequest){
+        Employee existing = employeeRepository.findByUsername(createEmployeeRequest.username());
         if(existing != null){
             throw new ResponseStatusException(CONFLICT,"Username already exist");
         }
         String plainPin = "";
-        if(createEmployeeDto.password() != null || !createEmployeeDto.password().isBlank()){
-            plainPin = createEmployeeDto.password();
+        if(createEmployeeRequest.password() != null || !createEmployeeRequest.password().isBlank()){
+            plainPin = createEmployeeRequest.password();
         }
-        Employee employee = modelMapper.map(createEmployeeDto,Employee.class);
+        Employee employee = modelMapper.map(createEmployeeRequest,Employee.class);
         employee.setPassword(passwordEncoder.encode(plainPin));
         employee.setEnabled(true);
 

@@ -1,4 +1,4 @@
-package com.project.SpaCentr.model.dto;
+package com.project.SpaCentr.model.dto.request;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;

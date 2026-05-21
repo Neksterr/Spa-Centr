@@ -1,7 +1,7 @@
 package com.project.SpaCentr.service;
 
-import com.project.SpaCentr.model.dto.CreateSpaServiceRequest;
-import com.project.SpaCentr.model.dto.SpaServiceResponse;
+import com.project.SpaCentr.model.dto.request.CreateSpaServiceRequest;
+import com.project.SpaCentr.model.dto.response.SpaServiceResponse;
 import com.project.SpaCentr.model.entity.SpaServiceEntity;
 import com.project.SpaCentr.repository.SpaServiceRepository;
 import org.modelmapper.ModelMapper;

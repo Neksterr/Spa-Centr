@@ -10,7 +10,7 @@ public class TargetEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "therapist_id", nullable = false)
-    private TherapistEntity therapistId;
+    private Employee therapistId;
 
     @Column(name = "year_range",nullable = false)
     private LocalDate year;
@@ -21,11 +21,11 @@ public class TargetEntity extends BaseEntity {
     @Column(name = "target_revenue")
     private double targetRevenue;
 
-    public TherapistEntity getTherapistId() {
+    public Employee getTherapistId() {
         return therapistId;
     }
 
-    public void setTherapistId(TherapistEntity therapistId) {
+    public void setTherapistId(Employee therapistId) {
         this.therapistId = therapistId;
     }
 

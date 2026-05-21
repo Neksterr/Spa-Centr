@@ -1,7 +1,7 @@
 package com.project.SpaCentr.controller;
 
-import com.project.SpaCentr.model.dto.BookingResponse;
-import com.project.SpaCentr.model.dto.CreateBookingRequest;
+import com.project.SpaCentr.model.dto.response.BookingResponse;
+import com.project.SpaCentr.model.dto.request.CreateBookingRequest;
 import com.project.SpaCentr.service.BookingService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;

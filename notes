@@ -1,0 +1,86 @@
+com.spa.spa_center
+│
+├── booking
+│   ├── BookingController
+│   ├── BookingService
+│   ├── BookingRepository
+│   ├── BookingEntity
+│   ├── dto
+│   │   ├── request
+│   │   │   └── CreateBookingRequest
+│   │   └── response
+│   │       ├── BookingResponse
+│   │       └── BookingMiniResponse
+│   └── mapper
+│       └── BookingMapper
+│
+├── employee
+│   ├── AdminEmployeeController
+│   ├── EmployeeService
+│   ├── EmployeeRepository
+│   ├── Employee
+│   ├── dto
+│   │   ├── request
+│   │   │   └── CreateEmployeeRequest
+│   │   └── response
+│   │       ├── EmployeeResponse
+│   │       └── EmployeeCreatedResponse
+│   └── mapper
+│       ├── BookingMapper
+        ├── EmployeeMapper
+        ├── SpaServiceMapper
+        ├── StickyNoteMapper
+        └── DashboardMapper
+│
+├── spa_service
+│   ├── AdminSpaServicesController
+│   ├── SpaServicesController
+│   ├── SpaServicesService
+│   ├── SpaServiceRepository
+│   ├── SpaServiceEntity
+│   ├── dto
+│   │   ├── request
+│   │   │   ├── CreateSpaServiceRequest
+│   │   │   └── SpaServiceSearchRequest
+│   │   └── response
+│   │       └── SpaServiceResponse
+│   └── mapper
+│       └── SpaServiceMapper
+│
+├── target
+│   ├── TargetController
+│   ├── TargetEntity
+│   ├── TargetRepository
+│   ├── TargetService
+│   └── dto
+│
+├── schedule
+│   ├── AvailabilitySlotEntity
+│   ├── TherapistScheduleDto
+│   ├── ScheduleService
+│   └── ScheduleController
+│
+├── sticky_note
+│   ├── StickyNoteEntity
+│   ├── StickyNoteRepository
+│   ├── StickyNoteService
+│   └── dto
+│
+├── dashboard
+│   ├── DashboardController
+│   ├── DashboardService
+│   └── dto
+│       └── DashboardResponse
+│
+├── security
+│   ├── SecurityConfig
+│   ├── CurrentUser
+│   ├── EmployeePrincipal
+│   └── EmployeeUserDetails
+│
+└── shared
+    ├── BaseEntity
+    ├── enums
+    ├── exception
+    ├── validation
+    └── util

@@ -1,7 +1,7 @@
 package com.project.SpaCentr.service;
 
-import com.project.SpaCentr.model.dto.BookingResponse;
-import com.project.SpaCentr.model.dto.CreateBookingRequest;
+import com.project.SpaCentr.model.dto.response.BookingResponse;
+import com.project.SpaCentr.model.dto.request.CreateBookingRequest;
 import com.project.SpaCentr.model.entity.BookingEntity;
 import com.project.SpaCentr.model.entity.Employee;
 import com.project.SpaCentr.model.entity.SpaServiceEntity;
@@ -9,7 +9,6 @@ import com.project.SpaCentr.model.enums.BookingStatus;
 import com.project.SpaCentr.model.enums.Role;
 import com.project.SpaCentr.repository.BookingRepository;
 import com.project.SpaCentr.repository.EmployeeRepository;
-import com.project.SpaCentr.repository.SpaServiceRepository;
 import com.project.SpaCentr.security.CurrentUser;
 import com.project.SpaCentr.security.EmployeePrincipal;
 import org.modelmapper.ModelMapper;

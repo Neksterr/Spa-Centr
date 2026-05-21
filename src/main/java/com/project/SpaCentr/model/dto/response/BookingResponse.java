@@ -1,4 +1,4 @@
-package com.project.SpaCentr.model.dto;
+package com.project.SpaCentr.model.dto.response;
 
 import com.project.SpaCentr.model.enums.BookingStatus;
 

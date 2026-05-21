@@ -1,0 +1,23 @@
+<div th:fragment="sidebar(activePage)" class="sidebar">
+<div class="logo">
+
+</div>
+<div class="menu">
+    <div class="main-title">Main Menu</div>
+    <a th:href="@{/dashboard}">Dashboard</a>
+    <a th:href="@{/appointments}">Appointments</a>
+    <a th:href="@{/targets}">Targets</a>
+    <a th:href="@{/services}">Services</a>
+    <a th:href="@{/settings}">Settings</a>
+
+    <a th:href="@{/profile}">Profile</a>
+    <form th:action="@{/logout}" method="post" class="logout-form">
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
+
+</div>
+
+
+
+
+</div>

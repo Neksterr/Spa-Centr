@@ -1,8 +1,8 @@
 package com.project.SpaCentr.controller;
 
-import com.project.SpaCentr.model.dto.CreateEmployeeDto;
-import com.project.SpaCentr.model.dto.EmployeeCreatedResponse;
-import com.project.SpaCentr.model.dto.EmployeeResponse;
+import com.project.SpaCentr.model.dto.request.CreateEmployeeRequest;
+import com.project.SpaCentr.model.dto.response.EmployeeCreatedResponse;
+import com.project.SpaCentr.model.dto.response.EmployeeResponse;
 import com.project.SpaCentr.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +18,8 @@ public class AdminEmployeeController {
         this.employeeService = employeeService;
     }
     @PostMapping
-    public EmployeeCreatedResponse create(@Valid @RequestBody CreateEmployeeDto createEmployeeDto){
-        return employeeService.createEmployee(createEmployeeDto);
+    public EmployeeCreatedResponse create(@Valid @RequestBody CreateEmployeeRequest createEmployeeRequest){
+        return employeeService.createEmployee(createEmployeeRequest);
     }
     @GetMapping
     public List<EmployeeResponse> listOfEmployees(){
